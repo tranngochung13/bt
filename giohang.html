@@ -26,14 +26,15 @@
 		<h1>Shop Cart</h1>
 		<div class="row">
 			<div class="col-md-4">
+				<div class="img-thumbnail" style="border: 1px solid gray; width: 100%; height: 160px;"><img src="./photo/gaming/zenbook.jpg" alt=""></div>
 				<div>Iphone 6</div>
 				<div>Gia: 18</div>
-				<button id="product-1" data-name="I phone 6" class="add-to-cart btn btn-primary">Add to cart</button>
+				<button id="Iphone 6" data-name="Iphone 6" data-price = "120000000" class="add-to-cart btn btn-primary">Add to cart</button>
 			</div>
 			<div class="col-md-4">
 				<div>Iphone 7</div>
 				<div>Gia: 18</div>
-				<button id="product-2" data-name="I phone 7" class="add-to-cart btn btn-primary">Add to cart</button>
+				<button id="Iphone 7" data-name="Iphone 7" data-price = "20000000" class="add-to-cart btn btn-primary">Add to cart</button>
 			</div>
 		</div>
 		<div class="row"> 
@@ -45,10 +46,94 @@
 					<th>Price</th> 
 					<th>Quantity</th> <th>Total</th> 
 				</tr> 
+			</thead>
+			<thead> 
+				<tr> 
+					<th>Id</th> 
+					<th>Name</th> 
+					<th>Price</th> 
+					<th>Quantity</th> <th>Total</th> 
+				</tr> 
 			</thead> 
 			<tbody></tbody> 
-		</table> </div> 
-
+			</table> 
+		</div> 
+		<div>
+			<button class="btn btn-lg btn-success" id="button-clear">Clear</button>
+		</div>
+	</div>
+	<div class="text-right">
+		
 	</div>
 </body>
+<script>
+	var shopCart = [];
+
+	$(document).ready(function () {
+		if (sessionStorage["shopping-cart-items"] != null) {
+			shopCart = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+		}
+		displayShoppingCart();
+	});
+
+	$(".add-to-cart").click(function (){
+		var button = $(this);
+		var id = button.attr("id");
+		var name = button.attr("data-name");
+		var price = button.attr("data-price");
+		var quantity = 1;
+
+		var item = {
+			id: id,
+			name: name,
+			price: price,
+			quantity: quantity
+		};
+	
+	var exists = false;
+	if (shopCart.length > 0) {
+		$.each(shopCart, function (index, value) {
+			if (value.id == item.id) {
+				value.quantity++;
+				exists = true;
+				return false;
+			}
+		});
+	}
+	if (!exists) {
+		shopCart.push(item);
+	}
+	sessionStorage["shopping-cart-items"] = JSON.stringify(shopCart);
+	displayShoppingCart();
+	});
+
+	//xóa
+	$("#button-clear").click(function (){
+		shopCart = [];
+		sessionStorage["shopping-cart-items"] = JSON.stringify(shopCart);
+		$("#table-products > tbody").html("");
+	});
+
+
+	//hiển thị
+	function displayShoppingCart() {
+		if (sessionStorage["shopping-cart-items"] != null) {
+			shopCart = JSON.parse(sessionStorage["shopping-cart-items"].toString());
+
+			$("#table-products > tbody").html("");
+			$.each(shopCart, function (index, item){
+				var htmlString = "";
+				htmlString += "<tr>";
+				htmlString += "<td>" + item.id + "</td>";
+				htmlString += "<td>" + item.name + "</td>";
+				htmlString += "<td style='text-align: right'>" + item.price + "</td>";
+				htmlString += "<td style='text-align: right'>" + item.quantity + "</td>";
+				htmlString += "<td style='text-align: right'>" + item.price * item.quantity + "</td>";
+				htmlString += "</tr>";
+
+				$("#table-products > tbody:last").append(htmlString);
+			});
+		}
+	}
+</script>
 </html>
