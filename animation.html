@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    width: 100%;
+    background: blue;
+    position: relative;
+    -webkit-animation-name: example;  /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 3s;  /* Safari 4.0 - 8.0 */    
+    -webkit-animation-fill-mode: forwards; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 3s;    
+    animation-fill-mode: forwards;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    from {top: 0px;}
+    to {top: 200px; background-color: blue;}
+}
+
+@keyframes example {
+    from {top: 0px;}
+    to {top: 200px; background-color: blue;}
+}
+</style>
+</head>
+<body>
+
+<p>Let the div element retain the style values from the last keyframe when the animation ends:</p>
+ <div class="row">
+    <div class="col-md-4">
+      <p><span class="glyphicon glyphicon-map-marker"></span>Địa chỉ: 101B Lê Hữu Trác, Quận Sơn Trà, TP.Đà Nẵng, Việt Nam</p>
+      <p><span class="glyphicon glyphicon-phone"></span> Phone:  0342713011(Kiệt)</p>
+       <p><span class="glyphicon glyphicon-phone"></span> Phone: 0965243205(Hùng)</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> Email: kiet.alang@student.passerellesnumeriques.org</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> Email: hung.tran.ngoc@student.passerellesnumeriques.org</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div> <p>Trần Ngọc Hùng</p>
+	Ngô Thị Thu Thảo
+    Nguyễn Thị Linh Trang
+</div>
+
+<p><strong>Note:</strong> The animation-fill-mode property is not supported in Internet Explorer 9 and earlier versions.</p>
+</body>
+</html>
