@@ -18,6 +18,15 @@ h3, h4 {
     height: 80%;
     /*opacity: 0.7;*/
 }
+
+body {
+  margin: 20px;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
 .person:hover {
     border-color: #f1f1f1;
 }
