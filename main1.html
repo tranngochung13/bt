@@ -39,7 +39,24 @@
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">MORE
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Merchandise</a>
+                <li><a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a>
+                <div class="modal fade" id="modal-id">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Modal title</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" href="./giohang.html">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div></li>
+                <li><a href="./giohang.html">GIỏ hàng</a>
                   <ul class="dropdown-menu">
                     <li><a href="#">aaaa</a></li>
                   </ul>
@@ -117,7 +134,9 @@
             <h6><b>Đèn bàn phím:</b> Có</h6>
             <h6><b>Pin:</b> 8-cell Li-ion</h6>
             <h6><b>Hệ điều hành:</b> Windows 10 64Bit</h6>
-            <h6><b>Thời gian bảo hành:</b> 48 tháng</h6>
+            <h6><b>Thời gian bảo hành:</b> 48 tháng <button id="Iphone 6" data-name="Iphone 6" data-price = "120000000" class="add-to-cart btn btn-primary glyphicon glyphicon-shopping-cart
+" style="margin-top: -10px;">    Mua</button></h6>
+            
           </div>
         </div>
       </div>
@@ -599,6 +618,10 @@
 
 
   <!-- Container (Contact Section) -->
+  
+
+<!-- Footer -->
+<footer class="text-center">
   <div id="contact" class="container">
     <h3 class="text-center">Liên hệ</h3>
     <p class="text-center"><em>**************</em></p>
@@ -630,9 +653,6 @@
       </div>
     </div>
   </div>
-
-<!-- Footer -->
-<footer class="text-center">
   <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
     <span class="glyphicon glyphicon-chevron-up"></span>
   </a><br><br>
